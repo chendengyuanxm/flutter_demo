@@ -1,8 +1,7 @@
 import 'package:flutter_demo/generated/json/base/json_convert_content.dart';
 import 'package:flutter_demo/net/api.dart';
-import 'package:lib_core/net/abstract_http_client.dart';
 import 'package:dio/dio.dart';
-import 'package:lib_core/net/lib_core_net.dart';
+import 'package:lib_core/lib_core.dart';
 
 class DefaultHttpClient extends HttpClient {
 

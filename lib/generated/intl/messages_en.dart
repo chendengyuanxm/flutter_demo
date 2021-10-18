@@ -20,5 +20,11 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "appName": MessageLookupByLibrary.simpleMessage("Flutter Framework"),
+        "languageSetting": MessageLookupByLibrary.simpleMessage("language set"),
+        "tab_home": MessageLookupByLibrary.simpleMessage("Home"),
+        "tab_mine": MessageLookupByLibrary.simpleMessage("Me"),
+        "tab_repo": MessageLookupByLibrary.simpleMessage("Repos")
+      };
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:lib_core/generated/l10n.dart';
-import 'package:lib_core/util/log_util.dart';
+import 'package:flutter_demo/generated/l10n.dart';
+import 'package:lib_core/lib_core.dart';
 
 class LocalizationProvider extends ChangeNotifier {
   Locale? _currentLocale;

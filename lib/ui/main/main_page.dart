@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lib_core/generated/l10n.dart';
+import 'package:flutter_demo/generated/l10n.dart';
 import 'package:flutter_demo/ui/home/home_page.dart';
 import 'package:flutter_demo/ui/mine/mine_page.dart';
 import 'package:flutter_demo/ui/repo/repo_page.dart';
-import 'package:lib_core/util/index.dart';
+import 'package:lib_core/lib_core.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);

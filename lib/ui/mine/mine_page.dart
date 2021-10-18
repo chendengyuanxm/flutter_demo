@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lib_core/generated/l10n.dart';
-import 'package:lib_core/service/index.dart';
+import 'package:flutter_demo/generated/l10n.dart';
 import 'package:flutter_demo/ui/mine/setting_page.dart';
+import 'package:lib_core/lib_core.dart';
 import 'package:lib_widget/lib_widget.dart';
 
 class MinePage extends StatefulWidget {

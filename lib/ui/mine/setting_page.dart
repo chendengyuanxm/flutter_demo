@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/mine/language_setting_page.dart';
 import 'package:flutter_demo/ui/mine/theme_setting_page.dart';
-import 'package:lib_core/service/index.dart';
+import 'package:lib_core/lib_core.dart';
 import 'package:lib_widget/lib_widget.dart';
 
 class SettingPage extends StatefulWidget {

@@ -49,6 +49,56 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Flutter Framework`
+  String get appName {
+    return Intl.message(
+      'Flutter Framework',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get tab_home {
+    return Intl.message(
+      'Home',
+      name: 'tab_home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Me`
+  String get tab_mine {
+    return Intl.message(
+      'Me',
+      name: 'tab_mine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Repos`
+  String get tab_repo {
+    return Intl.message(
+      'Repos',
+      name: 'tab_repo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `language set`
+  String get languageSetting {
+    return Intl.message(
+      'language set',
+      name: 'languageSetting',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +107,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'zh'),
     ];
   }
 

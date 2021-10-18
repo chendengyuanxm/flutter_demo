@@ -1,5 +1,5 @@
-import 'package:lib_core/service/index.dart';
 import 'package:flutter_demo/ui/login_page.dart';
+import 'package:lib_core/lib_core.dart';
 import 'package:stacked/stacked.dart';
 
 class AppVM extends BaseViewModel {

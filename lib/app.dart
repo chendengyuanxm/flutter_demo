@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lib_core/provider/localization_provider.dart';
-import 'package:lib_core/provider/theme_provider.dart';
-import 'package:lib_core/service/index.dart';
-import 'package:flutter_demo/ui/main/main_page.dart';
+import 'package:flutter_demo/generated/l10n.dart';
 import 'package:flutter_demo/ui/splash_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lib_core/lib_core.dart';
 import 'package:provider/provider.dart';
-import 'package:lib_core/generated/l10n.dart';
 import 'route.dart';
 
 class App extends StatelessWidget {
