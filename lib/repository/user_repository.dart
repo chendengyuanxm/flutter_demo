@@ -2,9 +2,9 @@ import 'dart:ffi';
 import 'package:dio/dio.dart';
 import 'package:flutter_demo/model/user_info_entity.dart';
 import 'package:flutter_demo/net/api.dart';
-import 'package:flutter_demo/net/default_http_client.dart';
+import 'package:flutter_demo/repository/repository.dart';
 
-class UserRepository {
+class UserRepository extends Repository {
   /// 登录
   Future<UserInfo?> login(String userName, String password) async {
     return await http.post<UserInfo>(Api.LOGIN, {
