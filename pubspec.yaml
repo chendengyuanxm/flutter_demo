@@ -30,11 +30,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   hive: ^2.0.4
   hive_flutter: ^1.1.0
+  stacked: ^2.2.3
+  cookie_jar: ^3.0.1
 
   lib_core:
-    path: ../../base/lib_core
+    path: base/lib_core
   lib_widget:
-    path: ../../base/lib_widget
+    path: base/lib_widget
 
 dev_dependencies:
   hive_generator: ^1.1.1

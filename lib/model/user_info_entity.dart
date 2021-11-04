@@ -1,7 +1,12 @@
-import 'package:lib_core/generated/json/base/json_convert_content.dart';
+import 'package:flutter_demo/generated/json/base/json_convert_content.dart';
+
+class UserResult with JsonConvert<UserResult> {
+	UserInfo? user;
+}
 
 class UserInfo with JsonConvert<UserInfo> {
-	String? name;
-	String? passwd;
-	String? token;
+	String? accountId;
+	String? userId;
+	String? personName;
+	String? userState;
 }

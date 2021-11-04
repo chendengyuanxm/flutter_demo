@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/generated/l10n.dart';
+import 'package:flutter_demo/provider/localization_provider.dart';
 import 'package:lib_core/lib_core.dart';
 import 'package:lib_widget/lib_widget.dart';
 import 'package:provider/provider.dart';

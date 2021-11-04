@@ -1,4 +1,3 @@
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lib_core/lib_core.dart';
 
 typedef OnSuccess<T>(T data);
@@ -42,12 +41,12 @@ class ViewModelHelper {
 
   handleException(HttpRequestException e) {
     LogUtil.e(e.toString());
-    Fluttertoast.showToast(msg: e.errMsg);
+    ToastUtil.showDebug(e.toString());
   }
 
   handleError(Error e) {
     LogUtil.e(e.toString());
     print(e.stackTrace);
-    Fluttertoast.showToast(msg: e.toString());
+    ToastUtil.show(e.toString());
   }
 }

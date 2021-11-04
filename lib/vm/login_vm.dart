@@ -21,8 +21,10 @@ class LoginVM extends BaseViewModel with ViewModelHelper {
     execute(userRepository.login(_userName!, _password!), onSuccess: (result) {
       showToast('登录成功!');
       locator<NavigationService>().pushPage(MainPage());
-    }, onError: (error) {
-      locator<NavigationService>().pushPage(MainPage());
-    });
+    },
+      // onError: (error) {
+      //   locator<NavigationService>().pushPage(MainPage());
+      // },
+    );
   }
 }

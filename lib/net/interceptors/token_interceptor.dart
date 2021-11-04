@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:lib_core/src/util/index.dart';
+import 'package:lib_core/lib_core.dart';
 
 class TokenInterceptor extends InterceptorsWrapper {
   @override

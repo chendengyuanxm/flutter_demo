@@ -1,21 +1,37 @@
+import 'dart:convert';
 import 'dart:ffi';
 import 'package:dio/dio.dart';
+import 'package:flutter_demo/model/update_version_entity.dart';
 import 'package:flutter_demo/model/user_info_entity.dart';
 import 'package:flutter_demo/net/api.dart';
 import 'package:flutter_demo/repository/repository.dart';
+import 'package:lib_core/lib_core.dart';
+import 'package:crypto/crypto.dart';
 
 class UserRepository extends Repository {
   /// 登录
   Future<UserInfo?> login(String userName, String password) async {
-    return await http.post<UserInfo>(Api.LOGIN, {
-      "userId": userName,
-      "password": password,
-    }, cancelToken: CancelToken(),);
+    HttpResult<UserResult> result = await http.post<UserResult>(
+      Api.LOGIN,
+      {
+        "userId": userName,
+        "password": password,
+      },
+      cancelToken: CancelToken(),
+      loadingText: '登录中...',
+    );
+    return result.data?.user;
   }
 
   /// 登出
   Future<Void?> logout() async {
-    return await http.post<Void>(Api.LOGOUT, {});
+    HttpResult result = await http.post<Void>(Api.LOGOUT, {});
+  }
+
+  /// 获取更新版本
+  Future<UpdateVersionEntity?> getAppVersion() async {
+    HttpResult<UpdateVersionResult> result = await http.get<UpdateVersionResult>(Api.UPDATE_VERSION, {"apkTypeCode": "xm_app"});
+    return result.data?.obj;
   }
 }
 

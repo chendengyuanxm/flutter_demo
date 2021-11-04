@@ -7,11 +7,12 @@ import 'package:lib_core/lib_core.dart';
 /// @description: 
 class HttpParser {
 
-  static HttpResult<T> parseJson<T>(Map<String, dynamic> json, bool isList) {
+  static HttpResult<T> parseJson<T>(int statusCode, Map<String, dynamic> json, bool isList) {
     HttpResult<T> result = HttpResult();
     result.isList = isList;
 
     try {
+      result.httpCode = statusCode;
       result.code = json['code'] ?? HttpCode.defaultCode;
       result.message = json['message'] ?? json['msg'];
 
@@ -20,7 +21,7 @@ class HttpParser {
         if (T == dynamic) {
           return data;
         } else {
-          result.data = JsonConvert.fromJsonAsT<T>(result);
+          result.data = JsonConvert.fromJsonAsT<T>(data);
         }
       }
     } catch (exception) {

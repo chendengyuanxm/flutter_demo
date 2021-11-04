@@ -5,12 +5,17 @@ import 'package:flutter_demo/net/http_const.dart';
 import 'package:flutter_demo/net/http_parser.dart';
 import 'package:lib_core/lib_core.dart';
 import 'api.dart';
+import 'interceptors/cookie_interceptor.dart';
 import 'interceptors/token_interceptor.dart';
 
 /// @author: Devin
 /// @date: 2021/10/27 14:54
 /// @description: 
 class HttpConfig extends IHttpConfig {
+
+  @override
+  List get configHttpResultSuccessCodeList => ["100"];
+
   @override
   BaseOptions configBaseOptions() {
     return BaseOptions(
@@ -32,6 +37,7 @@ class HttpConfig extends IHttpConfig {
   List<Interceptor>? configInterceptors() {
     List<Interceptor> interceptors = [];
     interceptors.add(TokenInterceptor());
+    interceptors.add(CookieInterceptor());
     return interceptors;
   }
 
@@ -51,8 +57,8 @@ class HttpConfig extends IHttpConfig {
   }
 
   @override
-  Future<HttpResult<T>> parseResult<T>(Map<String, dynamic> json, bool isList) async {
-    HttpResult<T> result = HttpParser.parseJson<T>(json, isList);
+  Future<HttpResult<T>> parseResult<T>(int statusCode, Map<String, dynamic> json, bool isList) async {
+    HttpResult<T> result = HttpParser.parseJson<T>(statusCode, json, isList);
     return result;
   }
 }

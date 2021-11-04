@@ -190,6 +190,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.1"
+  cookie_jar:
+    dependency: "direct main"
+    description:
+      name: cookie_jar
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.1"
   crypto:
     dependency: transitive
     description:
@@ -418,14 +425,14 @@ packages:
   lib_core:
     dependency: "direct main"
     description:
-      path: "../../base/lib_core"
+      path: "base/lib_core"
       relative: true
     source: path
     version: "1.0.0+1"
   lib_widget:
     dependency: "direct main"
     description:
-      path: "../../base/lib_widget"
+      path: "base/lib_widget"
       relative: true
     source: path
     version: "1.0.0+1"
@@ -729,7 +736,7 @@ packages:
     source: hosted
     version: "1.10.0"
   stacked:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: stacked
       url: "https://pub.flutter-io.cn"

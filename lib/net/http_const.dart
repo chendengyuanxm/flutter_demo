@@ -9,7 +9,7 @@ class HttpConst {
   static const validStatusCode = [200, 201, 204];
 
   ///接口请求网络成功code
-  static const httpResultSuccess = 100;
+  static const httpResultSuccess = "100";
 
   ///token错误code
   static const sysTokenError = 900001;
