@@ -14,7 +14,7 @@ import 'interceptors/token_interceptor.dart';
 class HttpConfig extends IHttpConfig {
 
   @override
-  List get configHttpResultSuccessCodeList => ["100"];
+  List get successCodeList => ["100"];
 
   @override
   BaseOptions configBaseOptions() {
@@ -39,21 +39,6 @@ class HttpConfig extends IHttpConfig {
     interceptors.add(TokenInterceptor());
     interceptors.add(CookieInterceptor());
     return interceptors;
-  }
-
-  @override
-  String configLoadingText() {
-    return 'loading...';
-  }
-
-  @override
-  bool isCheckNetwork() {
-    return true;
-  }
-
-  @override
-  bool isShowProgress() {
-    return true;
   }
 
   @override
