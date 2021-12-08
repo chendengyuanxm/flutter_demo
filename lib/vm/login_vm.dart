@@ -17,6 +17,8 @@ class LoginVM extends BaseViewModel with ViewModelHelper {
     notifyListeners();
   }
 
+  bool passwordVisible = false;
+
   login() {
     execute(userRepository.login(_userName!, _password!), onSuccess: (result) {
       showToast('登录成功!');
@@ -26,5 +28,10 @@ class LoginVM extends BaseViewModel with ViewModelHelper {
       //   locator<NavigationService>().pushPage(MainPage());
       // },
     );
+  }
+
+  togglePasswordVisible() {
+    passwordVisible = !passwordVisible;
+    notifyListeners();
   }
 }

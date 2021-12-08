@@ -1,0 +1,22 @@
+# Type a script or drag a script file from your workspace to insert its path.
+function urldecode() { : "${*//+/ }"; echo "${_//%/\\x}"|base64 -d; }
+
+IFS=',' read -r -a define_items <<< "$DART_DEFINES"
+
+flutter_key=flutter.inspector.structuredErrors=true
+demo_test=flutterInspectorStructuredErrors=true
+
+
+for index in "${!define_items[@]}"
+do
+    define_items[$index]=$(urldecode "${define_items[$index]}");
+done
+
+if [ ${#define_items[*]} > 1 ]; then
+    if [ ${define_items[0]} = $flutter_key ]; then
+        define_items[0]=$demo_test
+    fi
+fi
+
+
+printf "%s\n" "${define_items[@]}" > ${SRCROOT}/Flutter/DartDefines.xcconfig

@@ -21,6 +21,33 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def dartEnvironmentVariables = [
+        APP_CHANNEL: 'dev',
+        VERSION_CODE: 1,
+        VERSION_NAME: '1.0.0',
+]
+
+if (project.hasProperty('dart-defines')) {
+    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+            .split(',')
+            .collectEntries {entry ->
+                def pair = URLDecoder.decode(entry).split('=')
+                // 2.2版本, dart-defines被base64加密
+//                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+                [(pair.first()): (pair.last())]
+            }
+}
+
+def keys = [:]
+def channel = dartEnvironmentVariables.APP_CHANNEL
+if (channel == 'prod') {
+    keys.BAIDU_APPKEY="请输入百度KEY"
+    keys.JPUSH_APPKEY="请输入极光KEY"
+} else {
+    keys.BAIDU_APPKEY="请输入百度KEY"
+    keys.JPUSH_APPKEY="请输入极光KEY"
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -39,6 +66,13 @@ android {
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        manifestPlaceholders = [
+                BAIDU_APPKEY: keys.BAIDU_APPKEY,
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : keys.JPUSH_APPKEY,
+                JPUSH_CHANNEL: channel,
+        ]
     }
 
     buildTypes {

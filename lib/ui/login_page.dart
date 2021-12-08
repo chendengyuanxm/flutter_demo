@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/vm/login_vm.dart';
 import 'package:lib_widget/lib_widget.dart';
 import 'package:stacked/stacked.dart';
+import 'package:flutter_demo/assets.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder.nonReactive(
+    return ViewModelBuilder.reactive(
         viewModelBuilder: () => vm = LoginVM(),
         builder: (context, model, child) => Scaffold(
           body: Container(
@@ -80,6 +81,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onChanged: (text) => vm.password = text,
               ),
+            ),
+            GestureDetector(
+              onTap: () => vm.togglePasswordVisible(),
+              child: Image.asset(vm.passwordVisible ? R.iconHide : R.iconOpen, height: 20,),
             ),
           ],
         ),
