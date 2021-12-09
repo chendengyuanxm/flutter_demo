@@ -1,5 +1,5 @@
 class Api {
-  static const String BASE_URL = 'http://116.62.188.137:8050/';
+  static const String BASE_URL = 'http://47.111.7.12:8050/';
 
   static const String DIGITAL_URL = "api-digital";
 

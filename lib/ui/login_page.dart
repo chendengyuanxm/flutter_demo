@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/vm/login_vm.dart';
+import 'package:flutter_demo/widget/custom_button.dart';
 import 'package:lib_widget/lib_widget.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter_demo/assets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,27 +15,30 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _userNameTextEditingController = TextEditingController();
-  TextEditingController _passwordTextEditingController = TextEditingController();
-
   late LoginVM vm;
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
-        viewModelBuilder: () => vm = LoginVM(),
+        viewModelBuilder: () => vm = LoginVM()..init(),
         builder: (context, model, child) => Scaffold(
           body: Container(
-            padding: EdgeInsets.all(40),
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            child: Stack(
+              alignment: Alignment.topCenter,
               children: [
-                logoView(),
-                SizedBox(height: 30,),
-                inputView(),
-                SizedBox(height: 40,),
-                loginButton(),
+                Image.asset(R.iconLoginTopBg,),
+                Align(
+                  alignment: Alignment(0.0, -0.7),
+                  child: logoView(),
+                ),
+                Align(
+                  alignment: Alignment(0.0, 0.2),
+                  child: centerView(),
+                ),
+                Align(
+                  alignment: Alignment(0.0, 0.9),
+                  child: bottomView(),
+                ),
               ],
             ),
           ),
@@ -41,25 +47,68 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget logoView() {
-    return Text('Flutter Framework', style: TextStyle(
-      color: Theme.of(context).primaryColor,
+    return Text('城市综合管理服务平台', style: TextStyle(
+      color: Colors.white,
       fontWeight: FontWeight.w600,
       fontSize: 28,
     ),);
   }
 
+  Widget centerView() {
+    return Container(
+      padding: EdgeInsets.fromLTRB(20, 20, 20, 70),
+      margin: EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 2.0, spreadRadius: 1.0),]
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('  登录', style: TextStyle(
+            fontSize: 58.sp,
+            fontWeight: FontWeight.bold,
+          ),),
+          SizedBox(height: 10,),
+          inputView(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Checkbox(
+                onChanged: (value) => vm.toggleRememberPassword(value!),
+                value: vm.rememberPassword,
+              ),
+              Text('记住密码'),
+            ],
+          ),
+          SizedBox(height: 40,),
+          loginButton(),
+        ],
+      ),
+    );
+  }
+
   Widget inputView() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Row(
           children: [
-            Icon(Icons.person_outline),
             Expanded(
               child: TextField(
-                controller: _userNameTextEditingController,
+                controller: vm.userNameTextEditingController..text,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  hintText: 'input your account',
+                  hintText: '请输入用户名',
+                  suffixIcon: Visibility(
+                    visible: vm.userNameTextEditingController.text.length > 0,
+                    child: IconButton(
+                      onPressed: () => vm.userNameTextEditingController.clear(),
+                      icon: Icon(Icons.clear),
+                    ),
+                  ),
                 ),
                 onChanged: (text) => vm.userName = text,
               ),
@@ -67,17 +116,17 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
         Divider(),
+        SizedBox(height: 10,),
         Row(
           children: [
-            Icon(Icons.lock_outline_rounded),
             Expanded(
               child: TextField(
-                controller: _passwordTextEditingController,
+                controller: vm.passwordTextEditingController,
                 keyboardType: TextInputType.visiblePassword,
-                obscureText: true,
+                obscureText: !vm.passwordVisible,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  hintText: 'input your password',
+                  hintText: '请输入密码',
                 ),
                 onChanged: (text) => vm.password = text,
               ),
@@ -95,14 +144,16 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget loginButton() {
     return ExpandedWrap(
-      child: ElevatedButton(
+      child: CustomButton(
         onPressed: () => vm.login(),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
-          shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),),
-        ),
-        child: Text('Login'),
+        child: Text('登录'),
       ),
     );
+  }
+
+  Widget bottomView() {
+    return Text('智慧城市监督管理指挥中心', style: TextStyle(
+      fontSize: 34.sp,
+    ),);
   }
 }

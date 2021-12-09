@@ -17,11 +17,11 @@ class TextStyleConfig {
 }
 
 class ColorConfig {
-  static MaterialColor primaryColor = Colors.teal;
+  static MaterialColor primaryColor = Colors.blue; //0xff185AE8
   static MaterialColor accentColor = Colors.deepOrange;
 
   static const Color normalTextColor = const Color(0xFFB1B1B1);
-  static const Color background = const Color(0xFF202020);
+  static const Color background = const Color(0xffF3F5F9);
   static const Color cyan = const Color(0xFF0ACEFF);
   static const Color grey = const Color(0xFF3C3C3C);
   static const Color yellow = const Color(0xFFFFC200);

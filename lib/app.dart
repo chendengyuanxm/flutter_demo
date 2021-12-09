@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/common/index.dart';
 import 'package:flutter_demo/generated/l10n.dart';
 import 'package:flutter_demo/provider/localization_provider.dart';
 import 'package:flutter_demo/provider/theme_provider.dart';
@@ -21,12 +22,13 @@ class App extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Provider.of<ThemeProvider>(context).primaryColor,
           accentColor: Provider.of<ThemeProvider>(context).accentColor,
+          backgroundColor: ColorConfig.background,
           inputDecorationTheme: InputDecorationTheme(
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
           ),
         ),
-        home: SplashPage(),
+        initialRoute: SplashPageRoute,
         navigatorKey: navigationKey,
         onGenerateRoute: generateRoute,
         localizationsDelegates: [

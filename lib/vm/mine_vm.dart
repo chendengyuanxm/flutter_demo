@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_demo/model/update_version_entity.dart';
 import 'package:flutter_demo/repository/user_repository.dart';
 import 'package:flutter_demo/route.dart';
@@ -10,10 +11,13 @@ import 'package:stacked/stacked.dart';
 /// @description: 
 class MineVM extends BaseViewModel with ViewModelHelper {
 
-  logout() {
-    execute(userRepository.logout(), onSuccess: (result) {
-      locator<NavigationService>().pushNamedAndRemoveUntil(LoginPageRoute, (route) => false);
-    });
+  logout() async {
+    // execute(userRepository.logout(), onSuccess: (result) {
+    //   locator<NavigationService>().pushNamedAndRemoveUntil(LoginPageRoute, (route) => false);
+    // });
+    await LocalStorage.setUserId(null);
+    await LocalStorage.setUserInfo(null);
+    locator<NavigationService>().pushNamedAndRemoveUntil(LoginPageRoute, ModalRoute.withName(LoginPageRoute));
   }
 
   getAppVersion() {
