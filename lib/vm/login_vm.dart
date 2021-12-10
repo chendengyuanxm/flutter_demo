@@ -1,12 +1,12 @@
+import 'package:cm_core/base/viewmodel_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/model/user_info_entity.dart';
 import 'package:flutter_demo/repository/user_repository.dart';
 import 'package:flutter_demo/route.dart';
 import 'package:flutter_demo/ui/main/main_page.dart';
 import 'package:lib_core/lib_core.dart';
-import 'package:flutter_demo/vm/viewmodel_helper.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter_demo/common/index.dart';
+import 'package:cm_core/cm_core.dart';
 
 class LoginVM extends BaseViewModel with ViewModelHelper {
   TextEditingController userNameTextEditingController = TextEditingController();

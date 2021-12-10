@@ -1,19 +1,6 @@
-import 'package:flutter_demo/model/user_info_entity.dart';
+import 'package:flutter_demo/model/User.dart';
 
-userResultFromJson(UserResult data, Map<String, dynamic> json) {
-	if (json['user'] != null) {
-		data.user = UserInfo().fromJson(json['user']);
-	}
-	return data;
-}
-
-Map<String, dynamic> userResultToJson(UserResult entity) {
-	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data['user'] = entity.user?.toJson();
-	return data;
-}
-
-userInfoFromJson(UserInfo data, Map<String, dynamic> json) {
+userFromJson(User data, Map<String, dynamic> json) {
 	if (json['accountId'] != null) {
 		data.accountId = json['accountId'].toString();
 	}
@@ -29,7 +16,7 @@ userInfoFromJson(UserInfo data, Map<String, dynamic> json) {
 	return data;
 }
 
-Map<String, dynamic> userInfoToJson(UserInfo entity) {
+Map<String, dynamic> userToJson(User entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['accountId'] = entity.accountId;
 	data['userId'] = entity.userId;

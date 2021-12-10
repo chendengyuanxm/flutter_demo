@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:ffi';
+import 'package:cm_core/base/repository.dart';
+import 'package:cm_core/model/update_version_entity.dart';
+import 'package:cm_core/model/user_info_entity.dart';
+import 'package:cm_core/net/api.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_demo/model/update_version_entity.dart';
-import 'package:flutter_demo/model/user_info_entity.dart';
-import 'package:flutter_demo/net/api.dart';
-import 'package:flutter_demo/repository/repository.dart';
 import 'package:lib_core/lib_core.dart';
 import 'package:crypto/crypto.dart';
 

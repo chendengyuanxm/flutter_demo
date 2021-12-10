@@ -35,7 +35,7 @@ function checkStateFromFile() {
 function createReSourceManageClass() {
     read -p "请输入资源管理的类名:" name
     if [ -z $name ]; then
-        name="IDKitAssets"
+        name="R"
         echo "class $name {" > $SourceFilePath
     else
         if echo "$name" | grep -q '^[A-Z][A-Za-z]*$'; then
@@ -52,7 +52,7 @@ function createReSourceManageClass() {
 function getRegularNameOfFile() {
     read -p "请输入资源管理的文件名:" name
     if [ -z "$name" ]; then
-        name="idkit_assets"
+        name="assets"
         SourceFilePath="lib/$name.dart"
         checkStateFromFile $SourceFilePath
     else

@@ -1,4 +1,4 @@
-import 'package:flutter_demo/generated/json/base/json_convert_content.dart';
+import 'package:cm_core/generated/json/base/json_convert_content.dart';
 
 class UpdateVersionResult with JsonConvert<UpdateVersionResult> {
 	UpdateVersionEntity? obj;

@@ -1,6 +1,7 @@
-import 'package:flutter_demo/generated/json/base/json_convert_content.dart';
-import 'package:flutter_demo/net/http_const.dart';
+import 'package:cm_core/generated/json/base/json_convert_content.dart';
 import 'package:lib_core/lib_core.dart';
+
+import 'http_const.dart';
 
 /// @author: Devin
 /// @date: 2021/10/27 14:59

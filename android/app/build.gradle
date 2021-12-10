@@ -41,11 +41,11 @@ if (project.hasProperty('dart-defines')) {
 def keys = [:]
 def channel = dartEnvironmentVariables.APP_CHANNEL
 if (channel == 'prod') {
-    keys.BAIDU_APPKEY="请输入百度KEY"
-    keys.JPUSH_APPKEY="请输入极光KEY"
+    keys.BAIDU_APPKEY="FOMjAfKguEua5VhdWLCbbHiOXb4cxiqX" //请输入百度KEY
+    keys.JPUSH_APPKEY="3456e4566cfa7c1f65d04b7b" //请输入极光KEY
 } else {
-    keys.BAIDU_APPKEY="请输入百度KEY"
-    keys.JPUSH_APPKEY="请输入极光KEY"
+    keys.BAIDU_APPKEY="FOMjAfKguEua5VhdWLCbbHiOXb4cxiqX"
+    keys.JPUSH_APPKEY="3456e4566cfa7c1f65d04b7b"
 }
 
 apply plugin: 'com.android.application'
@@ -61,8 +61,9 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.devin.flutter_demo"
-        minSdkVersion 16
+//        applicationId "com.devin.flutter_demo"
+        applicationId "com.timeloit.xiamenchengguan"
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

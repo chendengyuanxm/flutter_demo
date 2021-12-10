@@ -1,10 +1,10 @@
+import 'package:cm_core/base/viewmodel_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/model/update_version_entity.dart';
 import 'package:flutter_demo/repository/user_repository.dart';
 import 'package:flutter_demo/route.dart';
-import 'package:flutter_demo/vm/viewmodel_helper.dart';
 import 'package:lib_core/lib_core.dart';
 import 'package:stacked/stacked.dart';
+import 'package:cm_core/cm_core.dart';
 
 /// @author: Devin
 /// @date: 2021/11/3 16:53

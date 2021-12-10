@@ -1,4 +1,17 @@
-import 'package:flutter_demo/model/update_version_entity.dart';
+import 'package:cm_core/model/update_version_entity.dart';
+
+updateVersionResultFromJson(UpdateVersionResult data, Map<String, dynamic> json) {
+	if (json['obj'] != null) {
+		data.obj = UpdateVersionEntity().fromJson(json['obj']);
+	}
+	return data;
+}
+
+Map<String, dynamic> updateVersionResultToJson(UpdateVersionResult entity) {
+	final Map<String, dynamic> data = new Map<String, dynamic>();
+	data['obj'] = entity.obj?.toJson();
+	return data;
+}
 
 updateVersionEntityFromJson(UpdateVersionEntity data, Map<String, dynamic> json) {
 	if (json['createTime'] != null) {

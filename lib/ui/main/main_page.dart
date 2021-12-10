@@ -1,3 +1,4 @@
+import 'package:cm_inspect/cm_inspect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/generated/l10n.dart';
 import 'package:flutter_demo/ui/home/home_page.dart';
@@ -29,7 +30,7 @@ class _MainPageState extends State<MainPage> {
   ];
 
   List _pages = [
-    HomePage(),
+    InspectPage(),
     RepoPage(),
     MinePage(),
   ];

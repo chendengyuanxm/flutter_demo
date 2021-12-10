@@ -1,12 +1,11 @@
 import 'dart:io';
-import 'package:dio/src/interceptor.dart';
-import 'package:dio/src/options.dart';
-import 'package:flutter_demo/net/http_const.dart';
-import 'package:flutter_demo/net/http_parser.dart';
 import 'package:lib_core/lib_core.dart';
 import 'api.dart';
+import 'http_const.dart';
+import 'http_parser.dart';
 import 'interceptors/cookie_interceptor.dart';
 import 'interceptors/token_interceptor.dart';
+import 'package:dio/dio.dart';
 
 /// @author: Devin
 /// @date: 2021/10/27 14:54
