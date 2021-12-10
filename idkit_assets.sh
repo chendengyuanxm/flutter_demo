@@ -5,6 +5,8 @@
 #Use : `bash idkit_assets.sh`  或者 `chmod +x idkit_assets.sh`
 
 ## 声明一些变量
+# 模块名
+ModuleName=Null
 # 资源管理文件路径
 SourceFilePath=""
 # 资源管理文件夹路径
@@ -114,7 +116,12 @@ function getAllPathOfSourceManagmentMenu() {
             name=$(echo $file | cut -d . -f 1)
             transformRules $name
             doDuplicateName $TempSourceName
-            echo "  static String $TempSourceName = '$FilePath';" >> $TempSourcesPath
+            if [ $ModuleName = Null ]; then
+              assetName="$FilePath"
+            else
+              assetName="packages/$ModuleName/$FilePath"
+            fi
+            echo "  static String $TempSourceName = '$assetName';" >> $TempSourcesPath
         fi
     done
 }
